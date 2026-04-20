@@ -1,35 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Operations Dashboard</title>
-    <link rel="stylesheet" href="style.css">
-</head>
 <body>
 
-<h1 class="title">Operations Intelligence Dashboard</h1>
+<div class="layout">
 
-<div class="container">
+    <!-- LEFT SIDEBAR -->
+    <div class="sidebar">
+        <div class="sidebar-title">INTEL OPS</div>
 
-    <div class="card" onclick="loadSection('missions')">
-        <h2>Past Missions</h2>
-        <p>Review completed operations and mission outcomes.</p>
+        <div class="tab" onclick="loadSection('missions')">Past Missions</div>
+        <div class="tab" onclick="loadSection('personnel')">Current Personnel</div>
+        <div class="tab" onclick="loadSection('hvts')">HVT Profiles</div>
     </div>
 
-    <div class="card" onclick="loadSection('personnel')">
-        <h2>Current Personnel</h2>
-        <p>Active operatives, analysts, and field agents.</p>
-    </div>
-
-    <div class="card" onclick="loadSection('hvts')">
-        <h2>HVT Profiles</h2>
-        <p>High‑value targets and priority intelligence subjects.</p>
+    <!-- MAIN CONTENT AREA -->
+    <div class="main">
+        <h1>Operations Intelligence Dashboard</h1>
+        <div id="content">Select a category from the left.</div>
     </div>
 
 </div>
 
-<div id="content"></div>
-
 <script src="script.js"></script>
 </body>
-</html>

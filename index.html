@@ -51,13 +51,15 @@ if (localStorage.getItem("loggedIn") !== "true") {
 <script>
 window.addEventListener("load", () => {
     setTimeout(() => {
-        document.getElementById("boot-screen").style.opacity = "0";
-        document.getElementById("boot-screen").style.transition = "1s";
+        const boot = document.getElementById("boot-screen");
+        boot.style.opacity = "0";
+
         setTimeout(() => {
-            document.getElementById("boot-screen").style.display = "none";
-        }, 1000);
-    }, 3500); // Boot sequence duration
+            boot.style.display = "none";
+        }, 1000); // matches CSS fade-out
+    }, 3500); // total boot sequence duration
 });
 </script>
+
 
 </body>

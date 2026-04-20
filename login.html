@@ -26,14 +26,13 @@ async function login() {
     const hashArray = Array.from(new Uint8Array(hashBuffer));
     const hashHex = hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
    
-    const correctHash = "d0f4f5a8c3e5f9b2c0b4d3e8a1f7c6d4e8b9a2c3d4f5e6a7b8c9d0e1f2a3b4c5
-";
+    const correctHash = "b2b5f2a4b0f0c6d4b1c8f8b4e7f6a3d9e2c7b1f4d8e9c0a1b5d3f2e4c6a7b8d9";
 
     if (hashHex === correctHash) {
         localStorage.setItem("loggedIn", "true");
         window.location.href = "index.html";
     } else {
-        document.getElementById("error").textContent = "Invalid access code.";
+        document.getElementById("error").textContent = "Oracle notified. Target will be exterminated.";
     }
 }
 </script>

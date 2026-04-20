@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Operations Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1 class="title">Operations Intelligence Dashboard</h1>
+
+<div class="container">
+
+    <div class="card" onclick="loadSection('missions')">
+        <h2>Past Missions</h2>
+        <p>Review completed operations and mission outcomes.</p>
+    </div>
+
+    <div class="card" onclick="loadSection('personnel')">
+        <h2>Current Personnel</h2>
+        <p>Active operatives, analysts, and field agents.</p>
+    </div>
+
+    <div class="card" onclick="loadSection('hvts')">
+        <h2>HVT Profiles</h2>
+        <p>High‑value targets and priority intelligence subjects.</p>
+    </div>
+
+</div>
+
+<div id="content"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

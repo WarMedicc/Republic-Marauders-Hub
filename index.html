@@ -6,12 +6,23 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="crt-overlay"></div>
 <script>
 if (localStorage.getItem("loggedIn") !== "true") {
     window.location.href = "login.html";
 }
 </script>
 
+<div id="boot-screen">
+    <div class="boot-text">
+        <p>Initializing Republic Marauder Systems...</p>
+        <p>Decrypting secure modules...</p>
+        <p>Loading personnel registry...</p>
+        <p>Loading mission archives...</p>
+        <p>Establishing encrypted uplink...</p>
+        <p class="boot-complete">ACCESS GRANTED</p>
+    </div>
+</div>
 
 
 <div class="layout">
@@ -37,4 +48,16 @@ if (localStorage.getItem("loggedIn") !== "true") {
 </div>
 
 <script src="script.js"></script>
+<script>
+window.addEventListener("load", () => {
+    setTimeout(() => {
+        document.getElementById("boot-screen").style.opacity = "0";
+        document.getElementById("boot-screen").style.transition = "1s";
+        setTimeout(() => {
+            document.getElementById("boot-screen").style.display = "none";
+        }, 1000);
+    }, 3500); // Boot sequence duration
+});
+</script>
+
 </body>

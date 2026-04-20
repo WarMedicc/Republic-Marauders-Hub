@@ -20,11 +20,13 @@ function renderSection(section, data) {
                 <h3>${item.name}</h3>
                 <p>${item.description}</p>
                 ${item.image ? `<img src="${item.image}" class="entry-img">` : ""}
+                ${item.link ? `<a class="detail-btn" href="${item.link}">View Details</a>` : ""}
                 <hr>
             </div>
         `;
     });
 }
+
 
 function formatTitle(section) {
     return {

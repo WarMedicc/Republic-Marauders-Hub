@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap');
+
+
 body {
     margin: 0;
     padding: 0;
     background: #0b0e11;
     color: #e6e6e6;
-    font-family: Arial, sans-serif;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 0.5px;
     text-align: center;
 }
 
@@ -77,13 +81,17 @@ body {
     padding: 15px 20px;
     cursor: pointer;
     transition: 0.2s;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .tab:hover {
     background: #1a222c;
     color: #4fa3ff;
+    text-shadow: 0 0 8px #4fa3ff;
 }
+
 
 /* MAIN CONTENT */
 .main {
@@ -91,6 +99,15 @@ body {
     padding: 30px;
     overflow-y: auto;
 }
+
+.main h1 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #4fa3ff;
+    text-shadow: 0 0 10px #4fa3ff;
+}
+
 
 .entry-img {
     max-width: 300px;
@@ -165,34 +182,52 @@ body {
     cursor: pointer;
     text-align: center;
     border-top: 1px solid #1f2a35;
-    transition: 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .sidebar-footer:hover {
     background: #4fa3ff;
     color: #000;
+    text-shadow: 0 0 8px #000;
 }
 
+
 .entry {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 15px;
+    border: 1px solid #1f2a35;
+    border-radius: 8px;
+    margin-bottom: 20px;
     transform: translateY(10px);
     opacity: 0;
     transition: all 0.4s ease;
-    margin-bottom: 20px;
 }
 
-.entry-link {
-    text-decoration: none;
-    color: #e6e6e6;
+.entry-link h3 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .entry-link:hover h3 {
     color: #4fa3ff;
+    text-shadow: 0 0 6px #4fa3ff;
 }
+
 
 .sidebar-logo {
     height: 75px;
     width: 75px;
-    margin: 0 auto;          /* centers horizontally */
-    display: block;          /* required for margin auto to work */
-    margin-bottom: 20px;     /* spacing below the logo */
+    margin: 0 auto 25px auto;
+    display: block;
+    border-radius: 50%;
+    box-shadow: 0 0 12px #4fa3ff;
 }
+
+#content h2 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #77baff;
+    margin-bottom: 20px;
+}
+

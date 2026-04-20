@@ -8,7 +8,7 @@
 <body>
 
 <div class="login-container">
-    <h2>INTEL ACCESS PORTAL</h2>
+    <h2>REPUBLIC MARAUDER ACCESS PORTAL</h2>
 
     <input type="password" id="password" placeholder="Enter Access Code">
     <button onclick="login()">Login</button>
@@ -17,13 +17,20 @@
 </div>
 
 <script>
-function login() {
-    const pass = document.getElementById("password").value;
+async function login() {
+    const input = document.getElementById("password").value;
 
-    // Change this to whatever password you want
-    const correct = "marauder";
+    // Hash the input using built‑in Web Crypto API
+    const encoder = new TextEncoder();
+    const data = encoder.encode(input);
+    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
 
-    if (pass === correct) {
+    // Stored hashed password (NOT the real password)
+    const correctHash = "98dcc5bcacf1071483c23cc9f4602cad";
+
+    if (hashHex === correctHash) {
         localStorage.setItem("loggedIn", "true");
         window.location.href = "index.html";
     } else {
@@ -31,6 +38,7 @@ function login() {
     }
 }
 </script>
+
 
 </body>
 </html>

@@ -35,3 +35,8 @@ function formatTitle(section) {
         hvts: "High‑Value Target Profiles"
     }[section];
 }
+
+function logout() {
+    localStorage.removeItem("loggedIn");
+    window.location.href = "login.html";
+}

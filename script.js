@@ -14,18 +14,30 @@ function renderSection(section, data) {
     const content = document.getElementById("content");
     content.innerHTML = `<h2>${formatTitle(section)}</h2>`;
 
-    data.forEach(item => {
-        content.innerHTML += `
-            <div class="entry">
+    data.forEach((item, index) => {
+        const entry = document.createElement("div");
+        entry.classList.add("entry");
+        entry.style.opacity = "0"; // start invisible
+
+        entry.innerHTML = `
+            <a href="${item.link}" class="entry-link">
                 <h3>${item.name}</h3>
                 <p>${item.description}</p>
                 ${item.image ? `<img src="${item.image}" class="entry-img">` : ""}
-                ${item.link ? `<a class="detail-btn" href="${item.link}">View Details</a>` : ""}
-                <hr>
-            </div>
+            </a>
+            <hr>
         `;
+
+        content.appendChild(entry);
+
+        // Animate each entry with a delay
+        setTimeout(() => {
+            entry.style.opacity = "1";
+            entry.style.transform = "translateY(0)";
+        }, index * 120);
     });
 }
+
 
 
 function formatTitle(section) {

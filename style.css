@@ -147,3 +147,45 @@ body {
     color: #ff4f4f;
     margin-top: 10px;
 }
+
+.sidebar {
+    width: 240px;
+    background: #11161c;
+    border-right: 1px solid #1f2a35;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    position: relative;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    padding: 15px 20px;
+    background: #1a222c;
+    cursor: pointer;
+    text-align: center;
+    border-top: 1px solid #1f2a35;
+    transition: 0.2s;
+}
+
+.sidebar-footer:hover {
+    background: #4fa3ff;
+    color: #000;
+}
+
+.entry {
+    transform: translateY(10px);
+    opacity: 0;
+    transition: all 0.4s ease;
+    margin-bottom: 20px;
+}
+
+.entry-link {
+    text-decoration: none;
+    color: #e6e6e6;
+}
+
+.entry-link:hover h3 {
+    color: #4fa3ff;
+}
+

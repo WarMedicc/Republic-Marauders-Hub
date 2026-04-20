@@ -20,15 +20,14 @@
 async function login() {
     const input = document.getElementById("password").value;
 
-    // Hash the input using built‑in Web Crypto API
     const encoder = new TextEncoder();
     const data = encoder.encode(input);
     const hashBuffer = await crypto.subtle.digest("SHA-256", data);
     const hashArray = Array.from(new Uint8Array(hashBuffer));
     const hashHex = hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
-
-    // Stored hashed password (NOT the real password)
-    const correctHash = "98dcc5bcacf1071483c23cc9f4602cad";
+   
+    const correctHash = "d0f4f5a8c3e5f9b2c0b4d3e8a1f7c6d4e8b9a2c3d4f5e6a7b8c9d0e1f2a3b4c5
+";
 
     if (hashHex === correctHash) {
         localStorage.setItem("loggedIn", "true");

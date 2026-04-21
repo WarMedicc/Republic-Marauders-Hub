@@ -438,7 +438,8 @@ body {
 }
 
 .profile-header .status-badge {
-    margin: 0; /* remove bottom margin */
+    margin-bottom: 0; /* remove bottom margin */
+    margin-left: 25;
     font-size: 0.9rem;
     padding: 6px 12px;
 }

@@ -1,9 +1,12 @@
 function loadSection(section) {
+    const SHEET_ID = "1TgyQ03rAL4OI2L5OiIcHSDwpC7uXnIikdk9VpDrKgA8";
+
     const fileMap = {
-        missions: "data/missions.json",
-        personnel: "data/personnel.json",
-        hvts: "data/hvts.json"
+        missions: `https://opensheet.elk.sh/${1TgyQ03rAL4OI2L5OiIcHSDwpC7uXnIikdk9VpDrKgA8}/Missions`,
+        personnel: `https://opensheet.elk.sh/${1TgyQ03rAL4OI2L5OiIcHSDwpC7uXnIikdk9VpDrKgA8}/Personnel`,
+        hvts: `https://opensheet.elk.sh/${1TgyQ03rAL4OI2L5OiIcHSDwpC7uXnIikdk9VpDrKgA8}/HVTs`
     };
+
 
     fetch(fileMap[section])
         .then(res => res.json())

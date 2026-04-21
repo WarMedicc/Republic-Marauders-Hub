@@ -193,35 +193,40 @@ body {
 }
 
 
-/* PERSONNEL DOSSIER CARD */
+/* DOSSIER CARD */
 .entry {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid #1f2a35;
     border-radius: 10px;
     padding: 18px;
     margin-bottom: 25px;
-    display: flex;
-    gap: 20px;
-    align-items: center;
 
-    /* animation from your staggered load */
+    /* animation */
     transform: translateY(10px);
     opacity: 0;
     transition: all 0.4s ease;
 }
 
-/* Image styling */
-.entry-img {
-    width: 110px;
-    height: 110px;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 1px solid #4fa3ff55;
-    box-shadow: 0 0 10px #4fa3ff33;
+/* Make entire card clickable */
+.entry-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    gap: 20px;
 }
 
-/* Text block */
-.entry-text h3 {
+/* Left side: name + description */
+.entry-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* Name */
+.entry-content h3 {
     margin: 0;
     font-size: 1.2rem;
     text-transform: uppercase;
@@ -229,20 +234,23 @@ body {
     color: #4fa3ff;
 }
 
-.entry-text p {
-    margin-top: 6px;
+/* Description on second row */
+.entry-content p {
+    margin-top: 8px;
     color: #c9d6e2;
     font-size: 0.95rem;
     line-height: 1.4;
 }
 
-/* Make the whole card clickable */
-.entry-link {
-    display: flex;
-    gap: 20px;
-    text-decoration: none;
-    color: inherit;
-    width: 100%;
+/* Image locked to the right */
+.entry-img {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #4fa3ff55;
+    box-shadow: 0 0 10px #4fa3ff33;
+    flex-shrink: 0; /* prevents shrinking */
 }
 
 /* Hover effect */
@@ -252,16 +260,55 @@ body {
     transform: translateY(0px) scale(1.02);
 }
 
-
-.entry-link h3 {
-    text-transform: uppercase;
+/* STATUS BADGE */
+.status-badge {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: bold;
     letter-spacing: 1px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 8px;
 }
 
-.entry-link:hover h3 {
-    color: #4fa3ff;
-    text-shadow: 0 0 6px #4fa3ff;
+/* Colors */
+.status-active {
+    background: #00ff9d22;
+    border: 1px solid #00ff9d55;
+    color: #00ff9d;
 }
+
+.status-mia {
+    background: #ffcc0022;
+    border: 1px solid #ffcc0055;
+    color: #ffcc00;
+}
+
+.status-kia {
+    background: #ff003322;
+    border: 1px solid #ff003355;
+    color: #ff0033;
+}
+
+.status-injured {
+    background: #ff660022;
+    border: 1px solid #ff660055;
+    color: #ff6600;
+}
+
+.status-leave {
+    background: #4fa3ff22;
+    border: 1px solid #4fa3ff55;
+    color: #4fa3ff;
+}
+
+.status-unknown {
+    background: #88888822;
+    border: 1px solid #88888855;
+    color: #aaaaaa;
+}
+
 
 
 .sidebar-logo {
@@ -279,6 +326,27 @@ body {
     color: #77baff;
     margin-bottom: 20px;
 }
+
+/* SORTING MAIN PAGE */
+#sort-controls button {
+    background: #1a222c;
+    border: 1px solid #4fa3ff55;
+    color: #4fa3ff;
+    padding: 8px 14px;
+    margin-right: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+    transition: 0.2s;
+}
+
+#sort-controls button:hover {
+    background: #4fa3ff;
+    color: #000;
+}
+
+
 
 /* CRT SCANLINE OVERLAY */
 .crt-overlay {

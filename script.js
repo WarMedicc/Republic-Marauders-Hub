@@ -8,10 +8,29 @@ function loadSection(section) {
     };
 
 
-    fetch(fileMap[section])
-        .then(res => res.json())
-        .then(data => renderSection(section, data));
+    fetch(fileMap.personnel)
+    .then(res => res.json())
+    .then(data => {
+        currentPersonnelData = data;
+        document.getElementById("sort-controls").style.display = "block";
+        renderSection("personnel", data);
+    });
+
 }
+
+function statusClass(status) {
+    if (!status) return "status-unknown";
+
+    switch (status.toUpperCase()) {
+        case "ACTIVE": return "status-active";
+        case "MIA": return "status-mia";
+        case "KIA": return "status-kia";
+        case "INJURED": return "status-injured";
+        case "ON LEAVE": return "status-leave";
+        default: return "status-unknown";
+    }
+}
+
 
 function renderSection(section, data) {
     const content = document.getElementById("content");
@@ -24,12 +43,16 @@ function renderSection(section, data) {
 
         entry.innerHTML = `
             <a href="${item.link}" class="entry-link">
-                <h3>${item.name}</h3>
-                <p>${item.description}</p>
+                <div class="entry-content">
+                    <span class="status-badge ${statusClass(item.status)}">${item.status}</span>
+                    <h3>${item.name}</h3>
+                    <p>${item.description}</p>
+                </div>
                 ${item.image ? `<img src="${item.image}" class="entry-img">` : ""}
             </a>
-            <hr>
         `;
+
+
 
         content.appendChild(entry);
 
@@ -40,6 +63,24 @@ function renderSection(section, data) {
         }, index * 120);
     });
 }
+
+let currentPersonnelData = [];
+
+function sortPersonnel(type) {
+    if (type === "name") {
+        currentPersonnelData.sort((a, b) => a.name.localeCompare(b.name));
+    }
+
+    if (type === "status") {
+        const order = ["ACTIVE", "INJURED", "ON LEAVE", "MIA", "KIA", "UNKNOWN"];
+        currentPersonnelData.sort((a, b) =>
+            order.indexOf(a.status.toUpperCase()) - order.indexOf(b.status.toUpperCase())
+        );
+    }
+
+    renderSection("personnel", currentPersonnelData);
+}
+
 
 
 

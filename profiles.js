@@ -30,8 +30,11 @@ function renderProfile(p) {
                 <img src="${p.image}" class="profile-image">
 
                 <div class="profile-bio">
-                    <h1 class="profile-name">${p.name}</h1>
-                    <span class="status-badge status-${p.status.toLowerCase()}">${p.status}</span>
+                    <div class="profile-header">
+                        <h1 class="profile-name">${p.name}</h1>
+                        <span class="status-badge status-${p.status.toLowerCase()}">${p.status}</span>
+                    </div>
+
 
                     <p class="profile-description">${p.bio}</p>
                 </div>

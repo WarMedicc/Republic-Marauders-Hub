@@ -269,7 +269,6 @@ body {
     letter-spacing: 1px;
     text-transform: uppercase;
     display: inline-block;
-    margin-bottom: 5px;
     margin-bottom: 8px;
 }
 
@@ -431,6 +430,19 @@ body {
     border: 1px solid #1f2a35;
     border-radius: 12px;
 }
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.profile-header .status-badge {
+    margin: 0; /* remove bottom margin */
+    font-size: 0.9rem;
+    padding: 6px 12px;
+}
+
 
 /* TOP ROW: IMAGE + BIO */
 .profile-top {

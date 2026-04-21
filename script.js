@@ -5,25 +5,26 @@ function loadSection(section) {
     const SHEET_ID = "1TgyQ03rAL4OI2L5OiIcHSDwpC7uXnIikdk9VpDrKgA8";
 
     const fileMap = {
-        missions: `https://opensheet.elk.sh/1TgyQ03rAL4OI2L5OiIcHSDwpC7uXnIikdk9VpDrKgA8/2`,
-        personnel: `https://opensheet.elk.sh/1TgyQ03rAL4OI2L5OiIcHSDwpC7uXnIikdk9VpDrKgA8/1`,
-        hvts: `https://opensheet.elk.sh/1TgyQ03rAL4OI2L5OiIcHSDwpC7uXnIikdk9VpDrKgA8/3`
+        missions: `https://opensheet.elk.sh/${SHEET_ID}/2`,
+        personnel: `https://opensheet.elk.sh/${SHEET_ID}/1`,
+        hvts: `https://opensheet.elk.sh/${SHEET_ID}/3`
     };
 
+    // Show filters ONLY for personnel
+    document.getElementById("filter-controls").style.display =
+        section === "personnel" ? "flex" : "none";
 
-    fetch(fileMap.personnel)
-    .then(res => res.json())
-    .then(data => {
-        fullPersonnelData = data;
-
-        populateRankDropdown(data);
-
-        document.getElementById("filter-controls").style.display = "flex";
-        renderSection("personnel", data);
-    });
-
-
+    fetch(fileMap[section])
+        .then(res => res.json())
+        .then(data => {
+            if (section === "personnel") {
+                fullPersonnelData = data;
+                populateRankDropdown(data);
+            }
+            renderSection(section, data);
+        });
 }
+
 
 function statusClass(status) {
     if (!status) return "status-unknown";

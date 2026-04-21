@@ -50,7 +50,7 @@ function renderSection(section, data) {
         entry.style.opacity = "0"; // start invisible
 
         entry.innerHTML = `
-            <a href="pages/personnel/war.html?id=${item.id}" class="entry-link">
+            <a href="profile.html?id=${item.id}" class="entry-link">
                 <div class="entry-content">
                     <span class="status-badge ${statusClass(item.status)}">${item.status}</span>
                     <h3>${item.name}</h3>

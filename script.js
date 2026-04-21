@@ -2,9 +2,9 @@ function loadSection(section) {
     const SHEET_ID = "1TgyQ03rAL4OI2L5OiIcHSDwpC7uXnIikdk9VpDrKgA8";
 
     const fileMap = {
-        missions: `https://opensheet.elk.sh/1TgyQ03rAL4OI2L5OiIcHSDwpC7uXnIikdk9VpDrKgA8/Missions`,
-        personnel: `https://opensheet.elk.sh/1TgyQ03rAL4OI2L5OiIcHSDwpC7uXnIikdk9VpDrKgA8/Personnel`,
-        hvts: `https://opensheet.elk.sh/1TgyQ03rAL4OI2L5OiIcHSDwpC7uXnIikdk9VpDrKgA8/HVTs`
+        missions: `https://opensheet.elk.sh/1TgyQ03rAL4OI2L5OiIcHSDwpC7uXnIikdk9VpDrKgA8/2`,
+        personnel: `https://opensheet.elk.sh/1TgyQ03rAL4OI2L5OiIcHSDwpC7uXnIikdk9VpDrKgA8/1`,
+        hvts: `https://opensheet.elk.sh/1TgyQ03rAL4OI2L5OiIcHSDwpC7uXnIikdk9VpDrKgA8/3`
     };
 
 

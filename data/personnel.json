@@ -1,9 +1,15 @@
 [
     {
         "name": "RM Veteran Sergeant War",
-        "description": "Assassin Company veteran sergeant.",
+        "description": "Assassin Company Veteran Sergeant.",
         "image": "images/personnel/novak.jpg",
         "link": "pages/personnel/war.html"
+    },
 
+    {
+        "name": "RM Major Kaisel",
+        "description": "Republic Marauder Administrative Liaison.",
+        "image": "images/personnel/novak.jpg",
+        "link": "pages/personnel/kaisel.html"
     }
 ]

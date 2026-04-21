@@ -421,19 +421,21 @@ body {
 
 /* PERSONNEL SUBPAGES */
 
+/* PROFILE PAGE LAYOUT */
 .profile-container {
     max-width: 900px;
     margin: 40px auto;
-    display: flex;
-    gap: 40px;
     padding: 20px;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid #1f2a35;
     border-radius: 12px;
 }
 
-.profile-image-box {
-    flex-shrink: 0;
+/* TOP ROW: IMAGE + BIO */
+.profile-top {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
 }
 
 .profile-image {
@@ -445,7 +447,7 @@ body {
     box-shadow: 0 0 12px #4fa3ff33;
 }
 
-.profile-info {
+.profile-bio {
     flex: 1;
 }
 
@@ -464,16 +466,19 @@ body {
     line-height: 1.5;
 }
 
-.section-title {
+/* BOTTOM SECTION */
+.profile-section {
     margin-top: 25px;
-    margin-bottom: 10px;
+}
+
+.profile-section h2 {
     color: #77baff;
     text-transform: uppercase;
     letter-spacing: 2px;
+    margin-bottom: 10px;
 }
 
 .profile-list {
-    margin: 0;
     padding-left: 20px;
     line-height: 1.6;
 }

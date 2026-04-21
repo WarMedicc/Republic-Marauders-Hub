@@ -32,14 +32,32 @@ if (localStorage.getItem("loggedIn") !== "true") {
     <div class="main">
         <h1>Republic Marauder Dashboard</h1>
         <div id="content"></div>
-    </div>
+        
+        <div id="filter-controls" style="display:none;">
+    <select id="rank-filter" onchange="applyFilters()">
+        <option value="ALL">All Ranks</option>
+    </select>
 
-    <div id="sort-controls" style="display:none;">
-    <button onclick="sortPersonnel('status')">Sort by Status</button>
-    <button onclick="sortPersonnel('name')">Sort by Name</button>
-    </div>
+    <select id="status-filter" onchange="applyFilters()">
+        <option value="ALL">All Statuses</option>
+        <option value="ACTIVE">Active</option>
+        <option value="INJURED">Injured</option>
+        <option value="ON LEAVE">On Leave</option>
+        <option value="MIA">MIA</option>
+        <option value="DECEASED">DECEASED</option>
+    </select>
+
+    <select id="company-filter" onchange="applyFilters()">
+        <option value="ALL">All Companies</option>
+        <option value="Shadow">Shadow</option>
+        <option value="Assassin">Assassin</option>
+        <option value="Purge">Purge</option>
+        <option value="Command">Command</option>
+    </select>
+</div>
 
     
+    </div>
 </div>
 
 <script src="script.js"></script>

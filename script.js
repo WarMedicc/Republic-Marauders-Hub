@@ -1,3 +1,6 @@
+let fullPersonnelData = [];
+
+
 function loadSection(section) {
     const SHEET_ID = "1TgyQ03rAL4OI2L5OiIcHSDwpC7uXnIikdk9VpDrKgA8";
 
@@ -11,10 +14,14 @@ function loadSection(section) {
     fetch(fileMap.personnel)
     .then(res => res.json())
     .then(data => {
-        currentPersonnelData = data;
-        document.getElementById("sort-controls").style.display = "block";
+        fullPersonnelData = data;
+
+        populateRankDropdown(data);
+
+        document.getElementById("filter-controls").style.display = "flex";
         renderSection("personnel", data);
     });
+
 
 }
 
@@ -64,22 +71,41 @@ function renderSection(section, data) {
     });
 }
 
-let currentPersonnelData = [];
+function populateRankDropdown(data) {
+    const rankSelect = document.getElementById("rank-filter");
 
-function sortPersonnel(type) {
-    if (type === "name") {
-        currentPersonnelData.sort((a, b) => a.name.localeCompare(b.name));
-    }
+    const ranks = [...new Set(data.map(p => p.rank).filter(r => r && r !== ""))];
 
-    if (type === "status") {
-        const order = ["ACTIVE", "INJURED", "ON LEAVE", "MIA", "KIA", "UNKNOWN"];
-        currentPersonnelData.sort((a, b) =>
-            order.indexOf(a.status.toUpperCase()) - order.indexOf(b.status.toUpperCase())
-        );
-    }
-
-    renderSection("personnel", currentPersonnelData);
+    ranks.forEach(rank => {
+        const option = document.createElement("option");
+        option.value = rank;
+        option.textContent = rank;
+        rankSelect.appendChild(option);
+    });
 }
+
+function applyFilters() {
+    const rank = document.getElementById("rank-filter").value;
+    const status = document.getElementById("status-filter").value;
+    const company = document.getElementById("company-filter").value;
+
+    let filtered = fullPersonnelData;
+
+    if (rank !== "ALL") {
+        filtered = filtered.filter(p => p.rank === rank);
+    }
+
+    if (status !== "ALL") {
+        filtered = filtered.filter(p => p.status && p.status.toUpperCase() === status);
+    }
+
+    if (company !== "ALL") {
+        filtered = filtered.filter(p => p.company === company);
+    }
+
+    renderSection("personnel", filtered);
+}
+
 
 
 

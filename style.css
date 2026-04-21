@@ -327,13 +327,18 @@ body {
     margin-bottom: 20px;
 }
 
-/* SORTING MAIN PAGE */
-#sort-controls button {
+/* FILTERING MAIN PAGE */
+#filter-controls {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+#filter-controls select {
     background: #1a222c;
     border: 1px solid #4fa3ff55;
     color: #4fa3ff;
     padding: 8px 14px;
-    margin-right: 10px;
     border-radius: 6px;
     cursor: pointer;
     font-family: 'Orbitron', sans-serif;
@@ -341,12 +346,10 @@ body {
     transition: 0.2s;
 }
 
-#sort-controls button:hover {
-    background: #4fa3ff;
-    color: #000;
+#filter-controls select:hover {
+    border-color: #4fa3ff;
+    box-shadow: 0 0 8px #4fa3ff55;
 }
-
-
 
 /* CRT SCANLINE OVERLAY */
 .crt-overlay {

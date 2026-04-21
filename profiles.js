@@ -1,4 +1,4 @@
-const PROFILE_URL = `https://opensheet.elk.sh/1TgyQ03rAL4OI2L5OiIcHSDwpC7uXnIikdk9VpDrKgA8/4`;
+const PROFILE_URL = `https://opensheet.elk.sh/1TgyQ03rAL4OI2L5OiIcHSDwpC7uXnIikdk9VpDrKgA8/2`;
 
 const params = new URLSearchParams(window.location.search);
 const trooperId = params.get("id");

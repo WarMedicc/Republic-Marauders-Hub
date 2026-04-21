@@ -5,9 +5,9 @@ function loadSection(section) {
     const SHEET_ID = "1TgyQ03rAL4OI2L5OiIcHSDwpC7uXnIikdk9VpDrKgA8";
 
     const fileMap = {
-        missions: `https://opensheet.elk.sh/${SHEET_ID}/2`,
+        missions: `https://opensheet.elk.sh/${SHEET_ID}/3`,
         personnel: `https://opensheet.elk.sh/${SHEET_ID}/1`,
-        hvts: `https://opensheet.elk.sh/${SHEET_ID}/3`
+        hvts: `https://opensheet.elk.sh/${SHEET_ID}/4`
     };
 
     // Show filters ONLY for personnel

@@ -24,7 +24,7 @@ function statusClass(status) {
     switch (status.toUpperCase()) {
         case "ACTIVE": return "status-active";
         case "MIA": return "status-mia";
-        case "KIA": return "status-kia";
+        case "DECEASED": return "status-deceased";
         case "INJURED": return "status-injured";
         case "ON LEAVE": return "status-leave";
         default: return "status-unknown";

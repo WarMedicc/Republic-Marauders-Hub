@@ -75,6 +75,8 @@ function renderSection(section, data) {
 function populateRankDropdown(data) {
     const rankSelect = document.getElementById("rank-filter");
 
+
+    rankSelect.innerHTML = `<option value="ALL">All Ranks</option>`;
     const ranks = [...new Set(data.map(p => p.rank).filter(r => r && r !== ""))];
 
     ranks.forEach(rank => {

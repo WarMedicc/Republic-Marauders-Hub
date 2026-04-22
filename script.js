@@ -53,51 +53,47 @@ function renderSection(section, data) {
     data.forEach((item, index) => {
         const entry = document.createElement("div");
 
-        // Use poster style for HVTs
-        entry.classList.add(section === "hvts" ? "hvt-poster" : "entry");
+        if (section === "hvts") {
+            // HVT Grid
+            entry.classList.add("hvt-poster");
+            entry.style.opacity = "0";
 
-        entry.style.opacity = "0";
+            entry.innerHTML = `
+                <a href="${item.link || '#'}" class="entry-link">
+                    <div class="hvt-poster-inner">
+                        <h3 class="hvt-title">WANTED</h3>
+                        <img src="${item.image}" class="hvt-img">
+                        <div class="hvt-name">${item.name}</div>
+                        <div class="hvt-description">${item.description || ''}</div>
+                    </div>
+                </a>
+            `;
+        } else {
+            // NORMAL PERSONNEL / MISSIONS ENTRY
+            entry.classList.add("entry");
+            entry.style.opacity = "0";
 
-        entry.innerHTML = `
-            <a href="${item.link || '#'}" class="entry-link">
-                <div class="hvt-poster-inner">
-                    <h3 class="hvt-title">WANTED</h3>
-                    <img src="${item.image}" class="hvt-img">
-                    <div class="hvt-name">${item.name}</div>
-                    <div class="hvt-description">${item.description || ''}</div>
-                </div>
-            </a>
-        `;
-
-
-
-    data.forEach((item, index) => {
-        const entry = document.createElement("div");
-        entry.classList.add("entry");
-        entry.style.opacity = "0"; // start invisible
-
-        entry.innerHTML = `
-            <a href="profile.html?id=${item.id}" class="entry-link">
-                <div class="entry-content">
-                    <span class="status-badge ${statusClass(item.status)}">${item.status}</span>
-                    <h3>${item.name}</h3>
-                    <p>${item.description}</p>
-                </div>
-                ${item.image ? `<img src="${item.image}" class="entry-img">` : ""}
-            </a>
-        `;
-
-
+            entry.innerHTML = `
+                <a href="profile.html?id=${item.id}" class="entry-link">
+                    <div class="entry-content">
+                        <span class="status-badge ${statusClass(item.status)}">${item.status}</span>
+                        <h3>${item.name}</h3>
+                        <p>${item.description}</p>
+                    </div>
+                    ${item.image ? `<img src="${item.image}" class="entry-img">` : ""}
+                </a>
+            `;
+        }
 
         content.appendChild(entry);
 
-        // Animate each entry with a delay
         setTimeout(() => {
             entry.style.opacity = "1";
             entry.style.transform = "translateY(0)";
         }, index * 120);
     });
 }
+
 
 function populateRankDropdown(data) {
     const rankSelect = document.getElementById("rank-filter");

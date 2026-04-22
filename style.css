@@ -439,7 +439,7 @@ body {
 
 .profile-header .status-badge {
     margin-bottom: 0; /* remove bottom margin */
-    margin-left: 25;
+    margin-left: 25px;
     font-size: 0.9rem;
     padding: 6px 12px;
 }

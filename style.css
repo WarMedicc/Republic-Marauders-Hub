@@ -502,12 +502,15 @@ body {
 
 .hvt-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, minmax(160px, 1fr));
     gap: 25px;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
+
 .hvt-poster {
+    position: relative;
+    overflow: hidden;
     background: #11161c;
     border: 2px solid #4fa3ff55;
     border-radius: 10px;
@@ -564,19 +567,21 @@ body {
 .hvt-poster::after {
     content: "";
     position: absolute;
-    top: 0;
+    top: -40%;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 40%;
     background: linear-gradient(
-        rgba(255,255,255,0.05),
-        rgba(0,0,0,0.1)
+        to bottom,
+        rgba(255,255,255,0.12),
+        rgba(0,0,0,0)
     );
-    mix-blend-mode: overlay;
-    animation: holoScan 4s linear infinite;
+    opacity: 0.4;
+    pointer-events: none;
+    animation: hvtScan 3s linear infinite;
 }
 
-@keyframes holoScan {
-    0% { transform: translateY(-100%); }
-    100% { transform: translateY(100%); }
+@keyframes hvtScan {
+    0%   { transform: translateY(0); }
+    100% { transform: translateY(200%); }
 }

@@ -44,32 +44,29 @@ function renderSection(section, data) {
     const content = document.getElementById("content");
     content.innerHTML = `<h2>${formatTitle(section)}</h2>`;
 
+    // Create a wrapper for entries
+    const entriesWrapper = document.createElement("div");
+
     if (section === "hvts") {
-        content.classList.add("hvt-grid");
-    } else {
-        content.classList.remove("hvt-grid");
+        entriesWrapper.classList.add("hvt-grid");
     }
 
     data.forEach((item, index) => {
         const entry = document.createElement("div");
 
         if (section === "hvts") {
-            // HVT Grid
             entry.classList.add("hvt-poster");
             entry.style.opacity = "0";
 
             entry.innerHTML = `
-                <a href="${item.link || '#'}" class="entry-link">
-                    <div class="hvt-poster-inner">
-                        <h3 class="hvt-title">WANTED</h3>
-                        <img src="${item.image}" class="hvt-img">
-                        <div class="hvt-name">${item.name}</div>
-                        <div class="hvt-description">${item.description || ''}</div>
-                    </div>
-                </a>
+                <div class="hvt-poster-inner">
+                    <h3 class="hvt-title">WANTED</h3>
+                    <img src="${item.image}" class="hvt-img">
+                    <div class="hvt-name">${item.name}</div>
+                    <div class="hvt-description">${item.description || ''}</div>
+                </div>
             `;
         } else {
-            // NORMAL PERSONNEL / MISSIONS ENTRY
             entry.classList.add("entry");
             entry.style.opacity = "0";
 
@@ -85,14 +82,17 @@ function renderSection(section, data) {
             `;
         }
 
-        content.appendChild(entry);
+        entriesWrapper.appendChild(entry);
 
         setTimeout(() => {
             entry.style.opacity = "1";
             entry.style.transform = "translateY(0)";
         }, index * 120);
     });
+
+    content.appendChild(entriesWrapper);
 }
+
 
 
 function populateRankDropdown(data) {

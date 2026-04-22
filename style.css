@@ -502,7 +502,7 @@ body {
 
 .hvt-grid {
     display: grid;
-    grid-template-columns: repeat(5, minmax(160px, 1fr));
+    grid-template-columns: repeat(5, minmax(160px, 400px));
     gap: 25px;
     margin-top: 20px;
 }
@@ -583,5 +583,5 @@ body {
 
 @keyframes hvtScan {
     0%   { transform: translateY(0); }
-    100% { transform: translateY(200%); }
+    100% { transform: translateY(400%); }
 }

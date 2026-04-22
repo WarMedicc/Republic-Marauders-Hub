@@ -44,6 +44,33 @@ function renderSection(section, data) {
     const content = document.getElementById("content");
     content.innerHTML = `<h2>${formatTitle(section)}</h2>`;
 
+    if (section === "hvts") {
+        content.classList.add("hvt-grid");
+    } else {
+        content.classList.remove("hvt-grid");
+    }
+
+    data.forEach((item, index) => {
+        const entry = document.createElement("div");
+
+        // Use poster style for HVTs
+        entry.classList.add(section === "hvts" ? "hvt-poster" : "entry");
+
+        entry.style.opacity = "0";
+
+        entry.innerHTML = `
+            <a href="${item.link || '#'}" class="entry-link">
+                <div class="hvt-poster-inner">
+                    <h3 class="hvt-title">WANTED</h3>
+                    <img src="${item.image}" class="hvt-img">
+                    <div class="hvt-name">${item.name}</div>
+                    <div class="hvt-description">${item.description || ''}</div>
+                </div>
+            </a>
+        `;
+
+
+
     data.forEach((item, index) => {
         const entry = document.createElement("div");
         entry.classList.add("entry");
